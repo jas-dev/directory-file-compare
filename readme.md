@@ -1,6 +1,6 @@
 # My collection of python automation modules
 
-This is the begining of my python modules collection for common daily tasks. In the past, I've developed similar collections at work but since I keep work and personal well separated I haven't maintained a personal collection- Until now!
+This is the begining of my python modules collection for automating common daily tasks. In the past, I've developed similar collections at work but since I keep work and personal well separated I haven't maintained a personal collection- Until now!
 
 ## File hashing, directory comparison, and file operations 
 
@@ -8,6 +8,7 @@ This is the begining of my python modules collection for common daily tasks. In 
 I work with sizeable data sets, both personally and professionally. I value staying organized, and I have an effective data management system. But, my directories trees are filled with categorized files of different data clasifications, and working with them is too time consuming without using automation.
 
 -I need to compare and modify directories often 
+-I need to do batch file opertaions often
 -I need to pivot on single or multiple artifacts often as part of research & analysis that requires enrichment
 -I dislike repeating myself (DRY principle) and wasting time
 -I need to programatically interact with various platforms and services
