@@ -19,3 +19,20 @@ def get_files_with_hashes(directory):
             file_hash = get_file_hash(file_path) # compute hash of file
             files_hash_map[file_path] = file_hash # map file path to its hash
     return files_hash_map
+
+# Find duplicate and unique files between source and target
+def find_duplicates_uniques(source_dir, target_dir):
+    source_files = get_files_with_hashes(source_dir)
+    target_files = get_files_with_hashes(target_dir)
+
+    # list comprehensions comparing source files to target, find matches, find unqiues
+    matches = [file for file, hash in source_files.items() if hash in target_files.values()]
+    uniques = [file for file, hash in source_files.items() if hash not in target_files.values()]
+
+    return matches, uniques # return the lists
+
+# Write results to file
+def write_to_file(file_list, file_name):
+    with open(file_name, 'w') as file:
+        for item in file_list:
+            file.write(f"{item}\n")
