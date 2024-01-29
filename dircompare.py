@@ -43,9 +43,21 @@ def main(source_dir, target_dir):
         print('One or both of the provided paths are not directories')
         sys.exit(1)
 
-    # Find duplicates and uniques and write them to respective output files
+    # find duplicates and uniques and write them to respective output files
     matches, uniques = find_duplicates_uniques(source_dir, target_dir)
     write_to_file(matches, 'matches.txt')
     write_to_file(uniques, 'uniques.txt')
     print("Process complete. Check 'matches.txt' and 'uniques.txt' for results")
-        
+
+# Cli entry point and error handling
+if __name__ == "__main__":
+    if len(sys.argv) != 3: # check for correct number of arguments
+        print("Usage: python script.py <source_directory> <target_directory>")
+        sys.exit(1)
+    
+    # assign cli arguments positions 
+    source_directory = sys.argv[1]
+    target_directory = sys.argv[2]
+
+    main(source_directory, target_directory)
+    
