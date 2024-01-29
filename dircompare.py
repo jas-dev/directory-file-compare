@@ -31,8 +31,21 @@ def find_duplicates_uniques(source_dir, target_dir):
 
     return matches, uniques # return the lists
 
-# Write results to file
+# Write resulting paths to specified file
 def write_to_file(file_list, file_name):
     with open(file_name, 'w') as file:
         for item in file_list:
             file.write(f"{item}\n")
+
+# Main function to invoke operation
+def main(source_dir, target_dir):
+    if not os.path.isdir(source_dir) or not os.path.isdir(target_dir): # check if paths are directories
+        print('One or both of the provided paths are not directories')
+        sys.exit(1)
+
+    # Find duplicates and uniques and write them to respective output files
+    matches, uniques = find_duplicates_uniques(source_dir, target_dir)
+    write_to_file(matches, 'matches.txt')
+    write_to_file(uniques, 'uniques.txt')
+    print("Process complete. Check 'matches.txt' and 'uniques.txt' for results")
+        
