@@ -24,3 +24,13 @@ def process_file(file_name):
         print(f'File not found: {file_name}')
     except Exception as e:
         print(f'Error: {e}')
+
+def main():
+    if len(sys.argv) !=2:
+        print("Usage: python script.py <file_path_list.txt")
+
+    deletion_list = sys.argv[1]
+    process_file(deletion_list)
+
+if __name__ == "__main__":
+    main()
