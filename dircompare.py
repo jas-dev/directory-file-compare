@@ -19,3 +19,45 @@ def get_files_with_hashes(directory):
             file_hash = get_file_hash(file_path) # compute hash of file
             files_hash_map[file_path] = file_hash # map file path to its hash
     return files_hash_map
+
+# Find duplicate and unique files between source and target
+def find_duplicates_uniques(source_dir, target_dir):
+    source_files = get_files_with_hashes(source_dir)
+    target_files = get_files_with_hashes(target_dir)
+
+    # list comprehensions comparing source files to target, find matches, find unqiues
+    matches = [file for file, hash in source_files.items() if hash in target_files.values()]
+    uniques = [file for file, hash in source_files.items() if hash not in target_files.values()]
+
+    return matches, uniques # return the lists
+
+# Write resulting paths to specified file
+def write_to_file(file_list, file_name):
+    with open(file_name, 'w') as file:
+        for item in file_list:
+            file.write(f"{item}\n")
+
+# Main function to invoke operation
+def main(source_dir, target_dir):
+    if not os.path.isdir(source_dir) or not os.path.isdir(target_dir): # check if paths are directories
+        print('One or both of the provided paths are not directories')
+        sys.exit(1)
+
+    # find duplicates and uniques and write them to respective output files
+    matches, uniques = find_duplicates_uniques(source_dir, target_dir)
+    write_to_file(matches, 'matches.txt')
+    write_to_file(uniques, 'uniques.txt')
+    print("Process complete. Check 'matches.txt' and 'uniques.txt' for results")
+
+# Cli entry point and error handling
+if __name__ == "__main__":
+    if len(sys.argv) != 3: # check for correct number of arguments
+        print("Usage: python script.py <source_directory> <target_directory>")
+        sys.exit(1)
+    
+    # assign cli arguments positions 
+    source_directory = sys.argv[1]
+    target_directory = sys.argv[2]
+
+    main(source_directory, target_directory)
+    
