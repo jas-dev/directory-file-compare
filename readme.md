@@ -1,6 +1,6 @@
 # My collection of python automation modules
 
-This is the begining of my python modules collection for automating common daily tasks. In the past, I've developed similar collections at work but since I keep work and personal well separated I haven't maintained a personal collection- Until now!
+This is the begining of my python modules collection for automating common daily tasks. In the past, I've developed similar collections at work but I keep work and personal content well separated.
 
 ## File hashing, directory comparison, and file operations 
 
