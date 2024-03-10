@@ -18,7 +18,7 @@ I work with sizeable data sets, both personally and professionally. I value stay
 Here I have my intial collection, just a few functions I can import or call from cli as needed to generate MD5 hashes for individual files or recursively for all files in a directory tree, compare for duplicates and uniques, aggregate and list paths, output to line separated text file, and take further action from there (for now just delete). 
 
 #### To do:
-* Change the relative pathing text file output to absolute pathing to path more useful overall and safer for deletion operations (beware when deleting stuff!)
+* Change the relative pathing text file output to absolute pathing, which is more useful overall and safer for deletion operations (beware when deleting stuff!)
 * Implement optional interactive cli workflow 
 
 ### Modules on my backlog:
